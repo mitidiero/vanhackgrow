@@ -22,7 +22,6 @@ public class UserHttpAdapter {
         return userApplicationService.create(
                 request.getName(),
                 request.getEmail(),
-                request.getPassword(),
                 request.getTotal()
         );
     }
@@ -37,6 +36,15 @@ public class UserHttpAdapter {
                 Long.valueOf(userId),
                 request.getName(),
                 request.getTotal()
+        );
+    }
+
+    @RequestMapping(value = "/signin", method = { RequestMethod.POST })
+    public UserDto signIn(
+            @Valid @RequestBody SignInRequest request
+    ) {
+        return userApplicationService.signIn(
+                request.getEmail()
         );
     }
 }

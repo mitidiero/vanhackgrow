@@ -18,8 +18,8 @@ public class UserApplicationService {
     @Autowired
     private UserService userService;
 
-    public UserDto create(String name, String email, String password, BigDecimal total) {
-        User user = new User(name, email, password, total);
+    public UserDto create(String name, String email, BigDecimal total) {
+        User user = new User(name, email, total);
 
         userService.create(user);
         log.info("Created user with id {}.", user.getId());
@@ -32,6 +32,11 @@ public class UserApplicationService {
 
         log.info("Update user {}.", user.getId());
 
+        return UserDto.fromUser(user);
+    }
+
+    public UserDto signIn(String email) {
+        User user = userService.findByEmail(email);
         return UserDto.fromUser(user);
     }
 }

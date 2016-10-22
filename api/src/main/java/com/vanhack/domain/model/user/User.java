@@ -9,16 +9,14 @@ public class User {
     private Long id;
     private String name;
     private String email;
-    private String password;
     private BigDecimal total;
 
     public User() {
     }
 
-    public User(String name, String email, String password, BigDecimal total) {
+    public User(String name, String email, BigDecimal total) {
         this.name = name;
         this.email = email;
-        this.password = password;
         this.total = total;
     }
 
@@ -49,14 +47,6 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public BigDecimal getTotal() {
         return total;
     }
@@ -71,7 +61,6 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
                 ", total=" + total +
                 '}';
     }

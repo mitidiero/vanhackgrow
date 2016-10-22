@@ -19,12 +19,10 @@ public class UserDto {
             @JsonProperty("id") String id,
             @JsonProperty("name") String name,
             @JsonProperty("email") String email,
-            @JsonProperty("password") String password,
             @JsonProperty("total") BigDecimal total) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.password = password;
         this.total = total;
     }
 
@@ -40,10 +38,6 @@ public class UserDto {
         return email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     public BigDecimal getTotal() {
         return total;
     }
@@ -53,7 +47,6 @@ public class UserDto {
                 user.getId().toString(),
                 user.getName(),
                 user.getEmail(),
-                user.getPassword(),
                 user.getTotal() != null ? user.getTotal() : null
         );
     }

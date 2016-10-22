@@ -12,19 +12,15 @@ public class CreateUserRequest {
     private String name;
     @NotNull(message = "User email is required.")
     private String email;
-    @NotNull(message = "User password is required.")
-    private String password;
     private BigDecimal total;
 
     @JsonCreator
     public CreateUserRequest(
             @JsonProperty("name") String name,
             @JsonProperty("email") String email,
-            @JsonProperty("password") String password,
             @JsonProperty("total") BigDecimal total) {
         this.name = name;
         this.email = email;
-        this.password = password;
         this.total = total;
     }
 
@@ -34,10 +30,6 @@ public class CreateUserRequest {
 
     public String getEmail() {
         return email;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public BigDecimal getTotal() {
