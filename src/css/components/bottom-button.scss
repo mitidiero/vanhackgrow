@@ -1,0 +1,28 @@
+.bottom-button {
+  position: fixed;
+  height: 50px;
+  width: calc(100% - 60px);
+  display: block;
+  color: #47C8DE;
+  bottom: 30px;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 4px;
+  background: #FFF;
+  box-shadow: #47C8DE 0px 3px 3px;
+  font-weight: bold;
+
+  @include middle-smartphones-portrait {
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+  }
+
+  @include big-smartphones-portrait {
+    height: 70px;
+    line-height: 70px;
+    font-size: 18px;
+  }
+}

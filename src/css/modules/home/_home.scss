@@ -1,0 +1,42 @@
+.home {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  background: url("../images/bg-home.png") no-repeat top center;
+  background-size: cover;
+  box-sizing: border-box;
+  padding: 30px;
+
+  h1 {
+    margin: 0;
+
+    font-size: 28px;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20% 17%;
+    text-align: center;
+  }
+
+  @include middle-smartphones-portrait {
+    font-size: 32px;
+  }
+
+  @include big-smartphones-portrait {
+    font-size: 36px;
+  }
+
+  .logo img {
+    max-height: 30px;
+    width: auto;
+
+    @include middle-smartphones-portrait {
+      max-height: 35px;
+    }
+
+    @include big-smartphones-portrait {
+      max-height: 40px;
+    }
+  }
+}

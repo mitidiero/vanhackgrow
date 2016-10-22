@@ -1,0 +1,17 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,600,300);
+@import "mixins/medias";
+@import "modules/home/home";
+@import "components/bottom-button";
+
+* {
+  font-family: Roboto;
+}
+
+html,
+body,
+main {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100%;
+}

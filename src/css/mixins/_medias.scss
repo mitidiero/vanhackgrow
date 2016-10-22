@@ -1,0 +1,29 @@
+// Media Queries Mixins
+
+@mixin smallest-devices-portrait {
+  @media only screen and
+  (min-device-width: 320px) and
+  (min-device-height: 568px) and
+  (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin middle-smartphones-portrait {
+  @media only screen
+  and (min-device-width : 375px)
+  and (min-device-height : 667px)
+  and (orientation : portrait) {
+    @content;
+  }
+}
+
+@mixin big-smartphones-portrait {
+  @media only screen
+  and (min-device-width : 414px)
+  and (max-device-width : 736px)
+  and (orientation : portrait) {
+    @content;
+  }
+}
+
