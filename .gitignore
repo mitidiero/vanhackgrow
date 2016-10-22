@@ -142,3 +142,4 @@ gradle-app.setting
 /api/.settings/
 .project
 /api/.project
+/node_modules
