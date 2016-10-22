@@ -15,6 +15,7 @@ import com.vanhack.domain.model.goal.Goal;
 import com.vanhack.domain.model.goal.GoalService;
 import com.vanhack.domain.model.user.User;
 import com.vanhack.domain.model.user.UserService;
+import org.springframework.stereotype.Service;
 
 @Service
 public class GoalApplicationService {
