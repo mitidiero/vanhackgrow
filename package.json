@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app",
     "dev": "grunt dev && exit 0",
-    "watcher": "grunt watcher && exit 0",
+    "watcher": "grunt watcher && exit 0"
   },
   "repository": {
     "type": "git",
