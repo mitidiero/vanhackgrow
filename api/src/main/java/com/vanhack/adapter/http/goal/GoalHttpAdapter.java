@@ -27,7 +27,7 @@ public class GoalHttpAdapter {
 		  request.getGoalDate(), request.getEmail());
 	}
 
-	@RequestMapping(value = "/Goals/{GoalId}", method = { RequestMethod.PUT })
+	@RequestMapping(value = "/goals/{goalId}", method = { RequestMethod.PUT })
 	@ResponseStatus(HttpStatus.CREATED)
 	public GoalDto update(@PathVariable String goalId, @Valid @RequestBody UpdateGoalRequest request) {
 		return goalApplicationService.update(request.getEmail(), Long.valueOf(goalId), request.getGoalName(), request.getGotAmount(),
