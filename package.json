@@ -1,31 +1,21 @@
 {
-  "name": "ingresso-desktop-web",
+  "name": "grow-angular",
   "version": "0.0.1",
-  "description": "ingresso-desktop-web",
+  "description": "grow-angular",
   "main": "app.js",
   "scripts": {
     "start": "node app",
-    "deploy": "grunt deploy && exit 0",
     "dev": "grunt dev && exit 0",
-    "dev:entretix": "grunt dev:entretix && exit 0",
-    "dev:ir": "grunt dev:ir && exit 0",
-    "deploy:entretix": "grunt deploy:entretix && exit 0",
-    "deploy:ir": "grunt deploy:ir && exit 0",
     "watcher": "grunt watcher && exit 0",
-    "watcher:entretix": "grunt watcher:entretix && exit 0",
-    "watcher:ir": "grunt watcher:ir && exit 0",
-    "watcher:entretix-palmeiras": "grunt watcher:entretix-palmeiras && exit 0",
-    "test": "echo \"Error: no test specified\" && exit 0",
-    "postinstall": "bower install && exit 0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Movile/ingresso-web.git"
+    "url": "https://github.com/prando27/vanhackgrow.git"
   },
   "bugs": {
-    "url": "https://github.com/Movile/ingresso-web/issues"
+    "url": "https://github.com/prando27/vanhackgrow/issues"
   },
-  "homepage": "https://github.com/Movile/ingresso-web",
+  "homepage": "https://github.com/prando27/vanhackgrow",
   "dependencies": {
     "angular": "^1.5.8",
     "angular-cookies": "^1.5.8",

@@ -17,14 +17,14 @@
     font-weight: bold;
     padding: 20% 17%;
     text-align: center;
-  }
 
-  @include middle-smartphones-portrait {
-    font-size: 32px;
-  }
+    @include middle-smartphones-portrait {
+      font-size: 32px;
+    }
 
-  @include big-smartphones-portrait {
-    font-size: 36px;
+    @include big-smartphones-portrait {
+      font-size: 36px;
+    }
   }
 
   .logo img {
