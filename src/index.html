@@ -1,0 +1,33 @@
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Achieve your goals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- @if NODE_ENV='DEVELOPMENT' -->
+    <link rel="stylesheet" href="css/styles.css"/>
+    <!-- @endif -->
+
+    <!-- @if NODE_ENV='DEPLOY' -->
+    <link rel="stylesheet" href="css/styles.min.css"/>
+    <!-- @endif -->
+
+    <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+
+
+<body>
+
+<main ng-view>
+
+</main>
+
+<!-- @include inc/_scriptsFooter.html -->
+
+</body>
+</html>
