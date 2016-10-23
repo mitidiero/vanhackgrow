@@ -1,42 +1,48 @@
 package com.vanhack.application;
 
-import com.vanhack.application.dto.UserDto;
-import com.vanhack.domain.model.user.User;
-import com.vanhack.domain.model.user.UserService;
+import java.math.BigDecimal;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
+import com.vanhack.adapter.http.user.UserSession;
+import com.vanhack.application.dto.UserDto;
+import com.vanhack.domain.model.user.User;
+import com.vanhack.domain.model.user.UserService;
 
 @Service
 public class UserApplicationService {
 
-    private final static Logger log = LoggerFactory.getLogger(UserApplicationService.class);
+	private final static Logger log = LoggerFactory.getLogger(UserApplicationService.class);
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    public UserDto create(String name, String email, BigDecimal total) {
-        User user = new User(name, email, total);
+	@Autowired
+	private UserSession session;
 
-        userService.create(user);
-        log.info("Created user with id {}.", user.getId());
+	public UserDto create(String name, String email, BigDecimal total) {
+		User user = new User(name, email, total);
 
-        return UserDto.fromUser(user);
-    }
+		userService.create(user);
+		log.info("Created user with id {}.", user.getId());
 
-    public UserDto update(Long userId, String name, BigDecimal total) {
-        User user = userService.update(userId, name, total);
+		return UserDto.fromUser(user);
+	}
 
-        log.info("Update user {}.", user.getId());
+	public UserDto update(Long userId, String name, BigDecimal total) {
+		User user = userService.update(userId, name, total);
 
-        return UserDto.fromUser(user);
-    }
+		log.info("Update user {}.", user.getId());
 
-    public UserDto signIn(String email) {
-        User user = userService.findByEmail(email);
-        return UserDto.fromUser(user);
-    }
+		return UserDto.fromUser(user);
+	}
+
+	public UserDto signIn(String email) {
+		User user = userService.findByEmail(email);
+		session.setEmail(email); // logged in
+		return UserDto.fromUser(user);
+	}
 }

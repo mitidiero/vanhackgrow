@@ -2,6 +2,8 @@ package com.vanhack.application;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,5 +41,18 @@ public class GoalApplicationService {
 		Goal updated = goalService.update(goalID, goalName, gotAmount, goalAmount, startDate, goalDate);
 		log.info("Updated goal with id {}.", updated.getId());
 		return GoalDto.fromGoal(updated);
+	}
+
+	public GoalDto get(String userEmail, Long goalID) {
+		return GoalDto.fromGoal(goalService.findOne(goalID));
+	}
+
+	public List<GoalDto> listAll(String userEmail) {
+		List<Goal> listAll = goalService.listAll();
+		List<GoalDto> list = new ArrayList<>(listAll.size());
+		for (Goal goal : listAll) {
+			list.add(GoalDto.fromGoal(goal));
+		}
+		return list;
 	}
 }
