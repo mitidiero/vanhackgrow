@@ -1,16 +1,14 @@
 package com.vanhack.application;
 
-import java.math.BigDecimal;
-
+import com.vanhack.application.dto.UserDto;
+import com.vanhack.domain.model.user.User;
+import com.vanhack.domain.model.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vanhack.adapter.http.user.UserSession;
-import com.vanhack.application.dto.UserDto;
-import com.vanhack.domain.model.user.User;
-import com.vanhack.domain.model.user.UserService;
+import java.math.BigDecimal;
 
 @Service
 public class UserApplicationService {
@@ -19,9 +17,6 @@ public class UserApplicationService {
 
 	@Autowired
 	private UserService userService;
-
-	@Autowired
-	private UserSession session;
 
 	public UserDto create(String name, String email, BigDecimal total) {
 		User user = new User(name, email, total);
@@ -42,7 +37,6 @@ public class UserApplicationService {
 
 	public UserDto signIn(String email) {
 		User user = userService.findByEmail(email);
-		session.setEmail(email); // logged in
 		return UserDto.fromUser(user);
 	}
 }

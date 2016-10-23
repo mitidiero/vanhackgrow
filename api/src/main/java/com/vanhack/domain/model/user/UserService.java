@@ -29,6 +29,16 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public User findById(Long id) {
+        User user = userRepository.findOne(id);
+        if (user == null) {
+            throw new EntityNotFoundException("Error finding user '"
+                    + id + " from database. User does not exits.");
+        }
+
+        return user;
+    }
+
     public User findByEmail(String email) {
         User user = userRepository.findByEmail(email);
         if (user == null) {
