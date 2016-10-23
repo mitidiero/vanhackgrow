@@ -1,4 +1,4 @@
-var appHome = angular.module('app.home', ['ngRoute', 'app.commons'])
+var appHome = angular.module('app.home', ['ngStorage', 'ngRoute', 'app.commons'])
     .config(['$routeProvider', '$locationProvider',
         function ($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(false);

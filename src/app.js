@@ -1,4 +1,10 @@
-angular.module('app', ['app.home'])
+var SERVER_URL = "http://localhost:8080/";
+var HEADERS = {
+    'charset' : 'utf-8',
+    'Access-Control-Allow-Origin': '*'
+};
+
+angular.module('app', ['app.home', 'app.signin'])
     .config(['$routeProvider', '$locationProvider',
         function ($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(false);
