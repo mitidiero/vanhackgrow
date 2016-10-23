@@ -13,30 +13,30 @@ import java.math.BigDecimal;
 @Service
 public class UserApplicationService {
 
-    private final static Logger log = LoggerFactory.getLogger(UserApplicationService.class);
+	private final static Logger log = LoggerFactory.getLogger(UserApplicationService.class);
 
-    @Autowired
-    private UserService userService;
+	@Autowired
+	private UserService userService;
 
-    public UserDto create(String name, String email, BigDecimal total) {
-        User user = new User(name, email, total);
+	public UserDto create(String name, String email, BigDecimal total) {
+		User user = new User(name, email, total);
 
-        userService.create(user);
-        log.info("Created user with id {}.", user.getId());
+		userService.create(user);
+		log.info("Created user with id {}.", user.getId());
 
-        return UserDto.fromUser(user);
-    }
+		return UserDto.fromUser(user);
+	}
 
-    public UserDto update(Long userId, String name, BigDecimal total) {
-        User user = userService.update(userId, name, total);
+	public UserDto update(Long userId, String name, BigDecimal total) {
+		User user = userService.update(userId, name, total);
 
-        log.info("Update user {}.", user.getId());
+		log.info("Update user {}.", user.getId());
 
-        return UserDto.fromUser(user);
-    }
+		return UserDto.fromUser(user);
+	}
 
-    public UserDto signIn(String email) {
-        User user = userService.findByEmail(email);
-        return UserDto.fromUser(user);
-    }
+	public UserDto signIn(String email) {
+		User user = userService.findByEmail(email);
+		return UserDto.fromUser(user);
+	}
 }

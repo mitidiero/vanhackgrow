@@ -11,40 +11,23 @@ import javax.validation.Valid;
 @RestController
 public class UserHttpAdapter {
 
-    @Autowired
-    private UserApplicationService userApplicationService;
+	@Autowired
+	private UserApplicationService userApplicationService;
 
-    @RequestMapping(value = "/users", method = { RequestMethod.POST })
-    @ResponseStatus(HttpStatus.CREATED)
-    public UserDto create(
-            @Valid @RequestBody final CreateUserRequest request
-    ) {
-        return userApplicationService.create(
-                request.getName(),
-                request.getEmail(),
-                request.getTotal()
-        );
-    }
+	@RequestMapping(value = "/users", method = { RequestMethod.POST })
+	@ResponseStatus(HttpStatus.CREATED)
+	public UserDto create(@Valid @RequestBody final CreateUserRequest request) {
+		return userApplicationService.create(request.getName(), request.getEmail(), request.getTotal());
+	}
 
-    @RequestMapping(value = "/users/{userId}", method = { RequestMethod.PUT })
-    @ResponseStatus(HttpStatus.CREATED)
-    public UserDto update(
-            @PathVariable String userId,
-            @Valid @RequestBody UpdateUserRequest request
-    ) {
-        return userApplicationService.update(
-                Long.valueOf(userId),
-                request.getName(),
-                request.getTotal()
-        );
-    }
+	@RequestMapping(value = "/users/{userId}", method = { RequestMethod.PUT })
+	@ResponseStatus(HttpStatus.CREATED)
+	public UserDto update(@PathVariable String userId, @Valid @RequestBody UpdateUserRequest request) {
+		return userApplicationService.update(Long.valueOf(userId), request.getName(), request.getTotal());
+	}
 
-    @RequestMapping(value = "/signin", method = { RequestMethod.POST })
-    public UserDto signIn(
-            @Valid @RequestBody SignInRequest request
-    ) {
-        return userApplicationService.signIn(
-                request.getEmail()
-        );
-    }
+	@RequestMapping(value = "/signin", method = { RequestMethod.POST })
+	public UserDto signIn(@Valid @RequestBody SignInRequest request) {
+		return userApplicationService.signIn(request.getEmail());
+	}
 }
