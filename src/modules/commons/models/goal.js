@@ -1,11 +1,11 @@
-var Goal = [function() {
+var Goal = ['User', function(User) {
     function Goal(data) {
         Entity.call(this);
 
         this.name = null;
         this.value = 0;
         this.months = 0;
-        this.monthlyValue = 0;
+        this.monthlyCost = 0;
 
         if (data) {
             this.setData(data);
@@ -22,15 +22,17 @@ var Goal = [function() {
         serialize : function(){
             var goalCopy = angular.copy(this);
 
+            goalCopy.userId = parseInt(this.user.id);
+
             delete goalCopy.errors;
-            delete goalCopy.monthlyValue;
+            delete goalCopy.user;
 
             return goalCopy;
         },
 
         calculate:  function() {
-            this.monthlyValue = this.value / this.months;
-            return this.monthlyValue;
+            this.monthlyCost = this.value / this.months;
+            return this.monthlyCost;
         }
 
     };

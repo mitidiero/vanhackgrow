@@ -1,6 +1,8 @@
 <div class="goals form result">
-    <label>
-        Wow! Sounds like you'll need to keep {{::goal.monthlyValue | currency}} in the next {{::goal.months}} months!
+    <label class="title">
+        Wow! Sounds like you'll need to keep
+        <span class="highlight">{{::goal.monthlyCost | currency}}</span> in the next
+        <span class="highlight">{{::goal.months}}</span> months!
         <br>
         Sounds hard? We can help you!
     </label>
@@ -34,5 +36,10 @@
             Do you know our investments? Click here, we can help you!
         </a>
     </p>
-    <a ng-href="#!/goal-name" title="Try Another Goal" class="bottom-button">Try Another Goal</a>
+
+    <div class="text-center">
+        <a ng-href="#!/goal-name" title="Try Another Goal" class="bottom-button static">Try Another Goal</a>
+        or
+        <a ng-href="#!/goal-list" title="Try Another Goal" class="bottom-button static">See your goals list</a>
+    </div>
 </div>

@@ -1,11 +1,11 @@
 <div class="goals form">
-    <label for="goal.value">
-        Cool! And how much money do you need to get a <span class="highlight">{{::goal.name}}</span>?
+    <label class="title" for="goal.value">
+        Cool! And how much money do you need to get <span class="highlight">{{::goal.name}}</span>?
     </label>
 
     <div class="field-with-format">
         <span class="prefix">$</span>
-        <input id="goal.value" type="number" name="goal.value" ng-model="goal.value" placeholder="20000" />
+        <input clear-on-focus id="goal.value" type="number" name="goal.value" ng-model="goal.value" placeholder="20000" />
         <span class="sufix">.00</span>
     </div>
 

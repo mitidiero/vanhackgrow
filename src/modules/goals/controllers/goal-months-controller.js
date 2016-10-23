@@ -12,8 +12,16 @@ goalMonthsController = [
         $scope.next = function() {
             if ($scope.goal.months != null) {
                 GoalService.setGoal($scope.goal);
+                GoalService.save(
+                    function success() {
+                        console.log("Goal Saved!");
+                        $location.path("/goal-first-result");
+                    },
+                    function error() {
+                        alert("Error when saving your goal")
+                    }
+                )
 
-                $location.path("/goal-first-result");
             } else {
                 alert("Please, enter your goal deadline");
             }

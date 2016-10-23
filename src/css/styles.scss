@@ -48,6 +48,29 @@ input {
   outline: none;
 }
 
+.title {
+  margin-top: 30px;
+  width: 100%;
+  display: block;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 5% 0 0 0;
+  text-align: left;
+  color: rgba(255,255,255,0.8);
+  .highlight {
+    color: #FFF;
+  }
+
+  @include middle-smartphones-portrait {
+    font-size: 28px;
+  }
+
+  @include big-smartphones-portrait {
+    font-size: 32px;
+  }
+}
+
 ::-webkit-input-placeholder {
   color: rgba(255,255,255,0.4);
 }

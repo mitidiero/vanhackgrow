@@ -1,0 +1,25 @@
+<div class="goal-list">
+    <h2 class="title">
+        Hi <span class="highlight">{{::user.name}}</span> <br/>
+        see all your goals here
+    </h2>
+
+    <p ng-show="goals.length == 0">
+        Couldn't get your goals :(
+    </p>
+
+    <ul class="my-goals">
+        <li class="goal-card" ng-repeat="goal in goals">
+            <h3 class="goal-name">{{::goal.name}}</h3>
+            <p>
+                You've to save <span class="goal-monthly-value">{{::goal.monthlyCost | currency}}</span> in the next
+                <span class="goal-months">{{::goal.months}}</span> months,
+                which mean <span class="goal-value">{{::goal.value | currency}}</span>
+            </p>
+        </li>
+    </ul>
+
+    <div class="text-center">
+        <a ng-href="#!/goal-name" title="New Goal" class="bottom-button static">New Goal</a>
+    </div>
+</div>

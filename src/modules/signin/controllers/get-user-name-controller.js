@@ -13,7 +13,9 @@ getUserNameController = [
                 UserService.setUser($scope.user);
 
                 UserService.save(
-                    function success() {
+                    function success(result) {
+                        console.log(result);
+                        UserService.setUser(result);
                         $location.path("/goal-name");
                     },
                     function error(error) {
