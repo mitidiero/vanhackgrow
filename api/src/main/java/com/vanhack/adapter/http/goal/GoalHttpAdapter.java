@@ -51,8 +51,9 @@ public class GoalHttpAdapter {
 		return goalApplicationService.listAllByUser(userId);
 	}
 
-//	@RequestMapping(value = "/goals", method = { RequestMethod.DELETE })
-//	@ResponseStatus(HttpStatus.NO_CONTENT)
-//	public void delete(@PathVariable Long goalId) {
-//	}
+	@RequestMapping(value = "/goals", method = { RequestMethod.DELETE })
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void delete(@PathVariable Long goalId) {
+		goalApplicationService.delete(goalId);
+	}
 }
