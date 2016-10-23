@@ -2,12 +2,13 @@ goalNameController = [
     '$scope',
     '$rootScope',
     '$localStorage',
+    '$location',
     'Goal',
     'GoalService',
     'User',
     'UserService',
 
-    function($scope, $rootScope, $localStorage, Goal, GoalService, User, UserService) {
+    function($scope, $rootScope, $localStorage, $location, Goal, GoalService, User, UserService) {
         $scope.user = UserService.getUser();
         $scope.goal = new Goal();
 
@@ -15,7 +16,7 @@ goalNameController = [
             if ($scope.goal.name != null) {
                 GoalService.setGoal($scope.goal);
 
-                $location.path("/get-user-name");
+                $location.path("/goal-cost");
             } else {
                 alert("Please, enter your goal name");
             }

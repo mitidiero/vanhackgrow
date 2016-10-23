@@ -9,6 +9,21 @@ var appGoals = angular.module('app.goals', ['ngStorage', 'ngRoute', 'app.commons
                     templateUrl: '/modules/goals/templates/goal-name.html',
                     controller: 'GoalNameController'
                 })
+                .when('/goal-cost', {
+                    templateUrl: '/modules/goals/templates/goal-cost.html',
+                    controller: 'GoalCostController'
+                })
+                .when('/goal-months', {
+                    templateUrl: '/modules/goals/templates/goal-months.html',
+                    controller: 'GoalMonthsController'
+                })
+                .when('/goal-first-result', {
+                    templateUrl: '/modules/goals/templates/goal-first-result.html',
+                    controller: 'GoalFirstResultController'
+                })
     }]);
 
 appGoals.controller('GoalNameController', goalNameController);
+appGoals.controller('GoalCostController', goalCostController);
+appGoals.controller('GoalMonthsController', goalMonthsController);
+appGoals.controller('GoalFirstResultController', goalFirstResultController);

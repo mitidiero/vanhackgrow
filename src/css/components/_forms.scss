@@ -34,4 +34,27 @@
       font-size: 28px;
     }
   }
+
+  .field-with-format {
+    position: relative;
+    font-size: 20px;
+
+    .prefix,
+    .sufix {
+      position: absolute;
+      top: 0;
+    }
+
+    .prefix {
+      left: 0;
+    }
+
+    .sufix {
+      right: 0;
+    }
+
+    input {
+      padding: 0 30px 0 15px;
+    }
+  }
 }

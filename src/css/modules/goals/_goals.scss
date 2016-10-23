@@ -1,6 +1,10 @@
 .goals {
   background: #45CCBB;
 
+  &.result {
+    height: auto;
+  }
+
   &.form {
     label {
       color: rgba(255,255,255,0.8);
@@ -10,7 +14,8 @@
       }
     }
 
-    input[type="text"] {
+    input[type="text"],
+    input[type="number"] {
       border-bottom: solid 2px #FFF;
       color: #1D807A;
     }
