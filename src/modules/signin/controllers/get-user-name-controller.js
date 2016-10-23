@@ -10,7 +10,15 @@ getUserNameController = [
 
         $scope.next = function() {
             if ($scope.user.email != null) {
-                $location.path("/get-user-name");
+                UserService.save(
+                    function success() {
+                        alert("User Saved");
+                    },
+                    function error(error) {
+                        alert("Error!");
+                        console.log(error);
+                    }
+                );
             } else {
                 alert("Please, enter your e-mail address");
             }

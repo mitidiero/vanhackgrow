@@ -14,6 +14,7 @@ var UserService = [
         var UserService = {
             setUser: function(newUser) {
                 user = newUser;
+                $localStorage[UserService.getUserKey()] = user;
             },
             getUser: function() {
                 var userData = $localStorage[UserService.getUserKey()];
@@ -30,7 +31,13 @@ var UserService = [
                 $http({
                     method : 'POST',
                     url : SERVER_URL + 'signin',
-                    headers : HEADERS,
+                    data : user.serialize()
+                }).success(callbackSuccess).error(callbackError);
+            },
+            save: function(callbackSuccess, callbackError) {
+                $http({
+                    method : 'POST',
+                    url : SERVER_URL + 'users',
                     data : user.serialize()
                 }).success(callbackSuccess).error(callbackError);
             },

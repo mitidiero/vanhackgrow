@@ -13,10 +13,10 @@ signinWithEmailController = [
                 UserService.setUser($scope.user);
 
                 UserService.signin(
-                    function success() {
+                    function success(error) {
                         alert("User already exists");
                     },
-                    function error() {
+                    function error(error) {
                         $location.path("/get-user-name");
                     }
                 );
