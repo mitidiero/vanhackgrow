@@ -12,7 +12,6 @@ import java.io.IOException;
 @Component
 public class CorsFilter implements Filter {
 
-
     @Value("${authentication.corsFilterEnabled}")
     private boolean corsFilterEnabled;
 
@@ -25,7 +24,7 @@ public class CorsFilter implements Filter {
         if (corsFilterEnabled) {
             final HttpServletRequest corsRequest = (HttpServletRequest) request;
             final HttpServletResponse corsResponse = (HttpServletResponse) response;
-            corsResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "http://localhost:3000");
+            corsResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "http://127.0.0.1:55166");
             corsResponse.setHeader(HttpHeaders.ACCESS_CONTROL_ALLOW_METHODS,
                     "POST, GET, PUT, OPTIONS, DELETE, HEAD, PATCH");
             corsResponse.setHeader(HttpHeaders.ACCESS_CONTROL_MAX_AGE, "3600");

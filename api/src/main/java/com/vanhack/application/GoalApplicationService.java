@@ -49,4 +49,8 @@ public class GoalApplicationService {
 		List<Goal> goals = goalService.listAllByUser(user);
 		return goals.stream().map(GoalDto::fromGoal).collect(Collectors.toList());
 	}
+
+	public void delete(Long goalId) {
+		goalService.delete(goalId);
+	}
 }
