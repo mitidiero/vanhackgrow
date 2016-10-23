@@ -1,0 +1,37 @@
+.form {
+  label {
+    margin-top: 30px;
+    width: 100%;
+    display: block;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 5% 0 0 0;
+    text-align: left;
+
+    @include middle-smartphones-portrait {
+      font-size: 28px;
+    }
+
+    @include big-smartphones-portrait {
+      font-size: 32px;
+    }
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"] {
+    background: none;
+    border: 0;
+    width: 100%;
+    font-size: 20px;
+
+    @include middle-smartphones-portrait {
+      font-size: 24px;
+    }
+
+    @include big-smartphones-portrait {
+      font-size: 28px;
+    }
+  }
+}

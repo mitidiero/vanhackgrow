@@ -1,0 +1,8 @@
+<div class="goals form">
+    <label for="goal.name">
+        Hi <span class="highlight">{{::user.name}}</span> :)<br/>
+        What will be your next goal?</label>
+    <input id="goal.name" type="text" name="goal.name" ng-model="goal.name" placeholder="Trip around the world!" />
+
+    <a ng-click="next();" title="Next" class="bottom-button">Next</a>
+</div>

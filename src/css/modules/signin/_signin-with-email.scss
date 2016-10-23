@@ -1,38 +1,15 @@
 .signin-with-email {
   background: #47C8DE;
 
-  a.back,
-  a.back:link,
-  a.back:visited,
-  a.back:hover,
-  a.back:active {
-    color: #FFF;
-    font-size: 14px;
-  }
-
-  label {
-    font-size: 24px;
-    color: #FFF;
-    text-transform: uppercase;
-    font-weight: bold;
-    padding: 5% 0 0 0;
-    text-align: left;
-
-    @include middle-smartphones-portrait {
-      font-size: 28px;
+  &.form {
+    label {
+      color: #FFF;
     }
 
-    @include big-smartphones-portrait {
-      font-size: 32px;
+    input[type="text"],
+    input[type="email"] {
+      border-bottom: solid 2px #FFF;
+      color: #6390de;
     }
-  }
-
-  input[type="text"] {
-    background: none;
-    border: 0;
-    border-bottom: solid 2px #FFF;
-    width: 100%;
-    font-size: 20px;
-    color: #6390de;
   }
 }

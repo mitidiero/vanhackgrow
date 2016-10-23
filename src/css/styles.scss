@@ -1,8 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700,600,300);
 @import "mixins/medias";
+
 @import "modules/home/home";
 @import "modules/signin/signin-with-email";
+@import "modules/goals/goals";
+
 @import "components/bottom-button";
+@import "components/back-button";
+@import "components/forms";
 
 * {
   font-family: Roboto;
@@ -29,6 +34,14 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
 }
 
 input {

@@ -1,0 +1,18 @@
+.goals {
+  background: #45CCBB;
+
+  &.form {
+    label {
+      color: rgba(255,255,255,0.8);
+
+      .highlight {
+        color: #FFF;
+      }
+    }
+
+    input[type="text"] {
+      border-bottom: solid 2px #FFF;
+      color: #1D807A;
+    }
+  }
+}

@@ -9,10 +9,12 @@ getUserNameController = [
         $scope.user = UserService.getUser();
 
         $scope.next = function() {
-            if ($scope.user.email != null) {
+            if ($scope.user.name != null) {
+                UserService.setUser($scope.user);
+
                 UserService.save(
                     function success() {
-                        alert("User Saved");
+                        $location.path("/goal-name");
                     },
                     function error(error) {
                         alert("Error!");

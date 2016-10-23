@@ -15,7 +15,7 @@
   line-height: 50px;
   border-radius: 4px;
   background: #FFF;
-  box-shadow: #47C8DE 0px 3px 3px;
+  box-shadow: rgba(255,255,255,0.5) 0 3px 3px;
   font-weight: bold;
 
   @include middle-smartphones-portrait {
