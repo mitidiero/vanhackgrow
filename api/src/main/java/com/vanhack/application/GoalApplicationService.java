@@ -1,19 +1,19 @@
 package com.vanhack.application;
 
-import com.vanhack.application.dto.GoalDto;
-import com.vanhack.domain.model.goal.Goal;
-import com.vanhack.domain.model.goal.GoalService;
-import com.vanhack.domain.model.user.User;
-import com.vanhack.domain.model.user.UserService;
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.vanhack.application.dto.GoalDto;
+import com.vanhack.domain.model.goal.Goal;
+import com.vanhack.domain.model.goal.GoalService;
+import com.vanhack.domain.model.user.User;
+import com.vanhack.domain.model.user.UserService;
 
 @Service
 public class GoalApplicationService {
@@ -26,16 +26,16 @@ public class GoalApplicationService {
 	@Autowired
 	private UserService userService;
 
-	public GoalDto create(String name, BigDecimal got, BigDecimal goal, LocalDate startDate, LocalDate goalDate, Long userId) {
+	public GoalDto create(String name, BigDecimal value, Integer months, BigDecimal monthlyCost, Long userId) {
 		User user = userService.findById(userId);
-		Goal goalEntity = new Goal(name, got, goal, startDate, goalDate, user);
+		Goal goalEntity = new Goal(name, months, value, monthlyCost, user);
 		goalService.create(goalEntity);
 		log.info("Created goal with id {}.", goalEntity.getId());
 		return GoalDto.fromGoal(goalEntity);
 	}
 
-	public GoalDto update(Long goalID, String goalName, BigDecimal gotAmount, BigDecimal goalAmount, LocalDate startDate, LocalDate goalDate) {
-		Goal updated = goalService.update(goalID, goalName, gotAmount, goalAmount, startDate, goalDate);
+	public GoalDto update(Long goalID, String name, BigDecimal value, BigDecimal monthlyCost, Integer months) {
+		Goal updated = goalService.update(goalID, name, value, monthlyCost, months);
 		log.info("Updated goal with id {}.", updated.getId());
 		return GoalDto.fromGoal(updated);
 	}

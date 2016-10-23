@@ -1,69 +1,50 @@
 package com.vanhack.application.dto;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.vanhack.domain.model.goal.Goal;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-
 public class GoalDto {
 
-    private String id;
-    private String name;
-    private BigDecimal got;
-    private BigDecimal goal;
-    private LocalDate startDate;
-    private LocalDate goalDate;
+	private String id;
+	private String name;
+	private Integer months;
+	private BigDecimal value;
+	private BigDecimal monthlyCost;
 
-    @JsonCreator
-    public GoalDto(
-            @JsonProperty("id") String id,
-            @JsonProperty("name") String name,
-            @JsonProperty("got") BigDecimal got,
-            @JsonProperty("goal") BigDecimal goal,
-            @JsonProperty("startDate") LocalDate startDate,
-            @JsonProperty("goalDate") LocalDate goalDate) {
-        this.id = id;
-        this.name = name;
-        this.got = got;
-        this.goal = goal;
-        this.startDate = startDate;
-        this.goalDate = goalDate;
-    }
+	@JsonCreator
+	public GoalDto(@JsonProperty("id") String id, @JsonProperty("name") String name, @JsonProperty("value") BigDecimal value,
+	  @JsonProperty("months") Integer months, @JsonProperty("monthlyCost") BigDecimal monthlyCost) {
+		this.id = id;
+		this.name = name;
+		this.value = value;
+		this.months = months;
+		this.monthlyCost = monthlyCost;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public Integer getMonths() {
+		return months;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public BigDecimal getValue() {
+		return value;
+	}
 
-    public BigDecimal getGot() {
-        return got;
-    }
+	public BigDecimal getMonthlyCost() {
+		return monthlyCost;
+	}
 
-    public BigDecimal getGoal() {
-        return goal;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public LocalDate getStartDate() {
-        return startDate;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public LocalDate getGoalDate() {
-        return goalDate;
-    }
-
-    public static GoalDto fromGoal(Goal goal) {
-        return new GoalDto(
-                goal.getId().toString(),
-                goal.getName(),
-                goal.getGot(),
-                goal.getGoal(),
-                goal.getStartDate(),
-                goal.getGoalDate()
-        );
-    }
+	public static GoalDto fromGoal(Goal goal) {
+		return new GoalDto(goal.getId().toString(), goal.getName(), goal.getValue(), goal.getMonths(), goal.getMonthlyCost());
+	}
 }

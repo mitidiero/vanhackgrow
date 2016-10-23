@@ -1,11 +1,11 @@
 package com.vanhack.adapter.http.goal;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.math.BigDecimal;
 
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
-import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CreateGoalRequest {
 
@@ -13,33 +13,24 @@ public class CreateGoalRequest {
 	private String goalName;
 
 	@NotNull(message = "Got VALUE is required.")
-	private BigDecimal gotAmount;
+	private BigDecimal value;
 
-	@NotNull(message = "Goal VALUE is required.")
-	private BigDecimal goalAmount;
+	@NotNull(message = "Goal monthlyCost is required.")
+	private BigDecimal monthlyCost;
 
-	@NotNull(message = "Start DATE is required.")
-	private LocalDate startDate;
-
-	@NotNull(message = "Goal DATE is required.")
-	private LocalDate goalDate;
+	@NotNull(message = "Number of months is required.")
+	private Integer months;
 
 	@NotNull(message = "User Id is required.")
 	private Long userId;
 
 	@JsonCreator
-	public CreateGoalRequest(
-			@JsonProperty("name") String goalName,
-			@JsonProperty("got$") BigDecimal gotAmount,
-	  		@JsonProperty("goal$") BigDecimal goalAmount,
-			@JsonProperty("startDate") LocalDate startDate,
-	  		@JsonProperty("goalDate") LocalDate goalDate,
-			@JsonProperty("userId") Long userId) {
+	public CreateGoalRequest(@JsonProperty("name") String goalName, @JsonProperty("value") BigDecimal value,
+	  @JsonProperty("monthlyCost") BigDecimal monthlyCost, @JsonProperty("months") Integer months, @JsonProperty("userId") Long userId) {
 		this.goalName = goalName;
-		this.gotAmount = gotAmount;
-		this.goalAmount = goalAmount;
-		this.startDate = startDate;
-		this.goalDate = goalDate;
+		this.value = value;
+		this.monthlyCost = monthlyCost;
+		this.months = months;
 		this.userId = userId;
 	}
 
@@ -47,20 +38,16 @@ public class CreateGoalRequest {
 		return goalName;
 	}
 
-	public BigDecimal getGotAmount() {
-		return gotAmount;
+	public BigDecimal getValue() {
+		return value;
 	}
 
-	public BigDecimal getGoalAmount() {
-		return goalAmount;
+	public BigDecimal getMonthlyCost() {
+		return monthlyCost;
 	}
 
-	public LocalDate getStartDate() {
-		return startDate;
-	}
-
-	public LocalDate getGoalDate() {
-		return goalDate;
+	public Integer getMonths() {
+		return months;
 	}
 
 	public Long getUserId() {

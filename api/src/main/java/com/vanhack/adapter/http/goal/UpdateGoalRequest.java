@@ -1,7 +1,6 @@
 package com.vanhack.adapter.http.goal;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
 
@@ -11,24 +10,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class UpdateGoalRequest {
 
 	private String goalName;
-	private BigDecimal gotAmount;
-	private BigDecimal goalAmount;
-	private LocalDate startDate;
-	private LocalDate goalDate;
+	private BigDecimal value;
+	private BigDecimal monthlyCost;
+	private Integer months;
 
 	@NotNull(message = "email is required (acting like a session key to keep it simple).")
 	private String email;
 
 	@JsonCreator
 	public UpdateGoalRequest(@JsonProperty("email") String email, @JsonProperty("name") String goalName,
-	  @JsonProperty("got$") BigDecimal got, @JsonProperty("goal$") BigDecimal goal, @JsonProperty("startDate") LocalDate startDate,
-	  @JsonProperty("goalDate") LocalDate goalDate) {
+	  @JsonProperty("value") BigDecimal value, @JsonProperty("monthlyCost") BigDecimal monthlyCost, @JsonProperty("months") Integer months) {
 		this.email = email; // fake session key
 		this.goalName = goalName;
-		this.gotAmount = got;
-		this.goalAmount = goal;
-		this.startDate = startDate;
-		this.goalDate = goalDate;
+		this.value = value;
+		this.monthlyCost = monthlyCost;
+		this.months = months;
 	}
 
 	public String getEmail() {
@@ -39,19 +35,16 @@ public class UpdateGoalRequest {
 		return goalName;
 	}
 
-	public BigDecimal getGotAmount() {
-		return gotAmount;
+	public BigDecimal getValue() {
+		return value;
 	}
 
-	public BigDecimal getGoalAmount() {
-		return goalAmount;
+	public BigDecimal getMonthlyCost() {
+		return monthlyCost;
 	}
 
-	public LocalDate getStartDate() {
-		return startDate;
+	public Integer getMonths() {
+		return months;
 	}
 
-	public LocalDate getGoalDate() {
-		return goalDate;
-	}
 }

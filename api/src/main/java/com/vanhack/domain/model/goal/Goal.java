@@ -1,104 +1,92 @@
 package com.vanhack.domain.model.goal;
 
-import com.vanhack.domain.model.user.User;
-
-import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.vanhack.domain.model.user.User;
 
 @Entity
 public class Goal {
 
-    private Long id;
-    private String name;
-    private BigDecimal got;
-    private BigDecimal goal;
-    private LocalDate startDate;
-    private LocalDate goalDate;
-    private User user;
+	private Long id;
+	private String name;
+	private Integer months;
+	private BigDecimal value;
+	private BigDecimal monthlyCost;
 
-    public Goal() {
-    }
+	private User user;
 
-    public Goal(String name, BigDecimal got, BigDecimal goal, LocalDate startDate, LocalDate goalDate, User user) {
-        this.name = name;
-        this.got = got;
-        this.goal = goal;
-        this.startDate = startDate;
-        this.goalDate = goalDate;
-        this.user = user;
-    }
+	public Goal() {
+	}
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
-        return id;
-    }
+	public Goal(String name, Integer months, BigDecimal value, BigDecimal monthlyCost, User user) {
+		this.name = name;
+		this.months = months;
+		this.value = value;
+		this.user = user;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getId() {
+		return id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public BigDecimal getGot() {
-        return got;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setGot(BigDecimal got) {
-        this.got = got;
-    }
+	public BigDecimal getValue() {
+		return value;
+	}
 
-    public BigDecimal getGoal() {
-        return goal;
-    }
+	public void setValue(BigDecimal val) {
+		this.value = val;
+	}
 
-    public void setGoal(BigDecimal goal) {
-        this.goal = goal;
-    }
+	public Integer getMonths() {
+		return months;
+	}
 
-    public LocalDate getStartDate() {
-        return startDate;
-    }
+	public BigDecimal getMonthlyCost() {
+		return monthlyCost;
+	}
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
+	public void setMonths(Integer months) {
+		this.months = months;
+	}
 
-    public LocalDate getGoalDate() {
-        return goalDate;
-    }
+	public void setMonthlyCost(BigDecimal monthlyCost) {
+		this.monthlyCost = monthlyCost;
+	}
 
-    public void setGoalDate(LocalDate goalDate) {
-        this.goalDate = goalDate;
-    }
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	public User getUser() {
+		return user;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    public User getUser() {
-        return user;
-    }
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "Goal{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", got=" + got +
-                ", goal=" + goal +
-                ", startDate=" + startDate +
-                ", goalDate=" + goalDate +
-                ", user=" + user.getName() +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Goal{" + "id=" + id + ", name='" + name + '\'' + ", value=" + value + ", months=" + months + ", monthlyCost=" + monthlyCost
+		  + ", user=" + user.getName() + '}';
+	}
 }
