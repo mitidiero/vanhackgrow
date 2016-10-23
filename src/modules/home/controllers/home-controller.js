@@ -1,11 +1,17 @@
 homeController = [
     '$scope',
     '$rootScope',
+    '$localStorage',
     'User',
+    'UserService',
 
-    function($s, $rs, User) {
-        var user = new User();
-        user.name = "Luiz"
-        //alert(user.name);
+    function($scope, $rootScope, $localStorage, User, UserService) {
+        if (UserService.getUser()) {
+            //verify if has a goal
+            // if has, redirect to see the goal
+            // if not, redirect to register a goal
+        } else {
+            console.log("no user");
+        }
     }
 ];

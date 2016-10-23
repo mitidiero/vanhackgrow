@@ -22,20 +22,6 @@ var User = [function() {
             delete userCopy.errors;
 
             return userCopy;
-        },
-
-        validate: function() {
-            this.errors = [];
-
-            return this._isValid();
-        },
-
-        save: function(callbackSuccess, callbackError) {
-            if (this.hasErrors()) {
-                return false;
-            }
-
-            //save and execute callbacks
         }
 
     };

@@ -1,4 +1,8 @@
-.bottom-button {
+.bottom-button,
+.bottom-button:link,
+.bottom-button:visited,
+.bottom-button:hover,
+.bottom-button:active {
   position: fixed;
   height: 50px;
   width: calc(100% - 60px);

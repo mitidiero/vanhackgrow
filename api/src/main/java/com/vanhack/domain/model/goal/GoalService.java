@@ -1,5 +1,6 @@
 package com.vanhack.domain.model.goal;
 
+import com.vanhack.domain.model.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -34,8 +35,8 @@ public class GoalService {
         return goalRepository.save(goalEntity);
     }
 
-    public List<Goal> listAll() {
-        return goalRepository.findAll();
+    public List<Goal> listAllByUser(User user) {
+        return goalRepository.findByUser(user);
     }
 
     public Goal findOne(Long goalId) {

@@ -1,4 +1,6 @@
-angular.module('app', ['app.home'])
+var SERVER_URL = "http://localhost:8080/";
+
+angular.module('app', ['app.home', 'app.signin'])
     .config(['$routeProvider', '$locationProvider',
         function ($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(false);

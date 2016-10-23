@@ -7,7 +7,9 @@ var app, server,
     dist = path.join(__dirname, 'deploy');
 
 app = express();
-app.use(function(req, res, next) { console.log(req.url); next(); });
+app.use(function(req, res, next) {
+    console.log(req.url); next();
+});
 app.use(express.static(pub));
 app.use('/dist', express.static(dist));
 server = app.listen(port, host, serverStarted);

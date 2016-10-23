@@ -1,12 +1,11 @@
 package com.vanhack.adapter.http.goal;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-
-import javax.validation.constraints.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class CreateGoalRequest {
 
@@ -25,22 +24,23 @@ public class CreateGoalRequest {
 	@NotNull(message = "Goal DATE is required.")
 	private LocalDate goalDate;
 
-	@NotNull(message = "email is required (acting like a session key to keep it simple).")
-	private String email;
+	@NotNull(message = "User Id is required.")
+	private Long userId;
 
 	@JsonCreator
-	public CreateGoalRequest(@JsonProperty("name") String goalName, @JsonProperty("got$") BigDecimal gotAmount,
-	  @JsonProperty("goal$") BigDecimal goalAmount, @JsonProperty("startDate") LocalDate startDate,
-	  @JsonProperty("goalDate") LocalDate goalDate) {
+	public CreateGoalRequest(
+			@JsonProperty("name") String goalName,
+			@JsonProperty("got$") BigDecimal gotAmount,
+	  		@JsonProperty("goal$") BigDecimal goalAmount,
+			@JsonProperty("startDate") LocalDate startDate,
+	  		@JsonProperty("goalDate") LocalDate goalDate,
+			@JsonProperty("userId") Long userId) {
 		this.goalName = goalName;
 		this.gotAmount = gotAmount;
 		this.goalAmount = goalAmount;
 		this.startDate = startDate;
 		this.goalDate = goalDate;
-	}
-
-	public String getEmail() {
-		return email; // fake session key
+		this.userId = userId;
 	}
 
 	public String getGoalName() {
@@ -63,4 +63,7 @@ public class CreateGoalRequest {
 		return goalDate;
 	}
 
+	public Long getUserId() {
+		return userId;
+	}
 }
